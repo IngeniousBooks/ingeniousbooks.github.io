@@ -1,0 +1,12 @@
+* {
+  /* Colour Palette */
+  --bold: #ff6633;
+  --light: #ffffee;
+  --highlight: #face3c;
+  --dark: #313030;
+  --lowlight: #545558;
+}
+
+.logo {
+  fill: #ff6633;
+}
