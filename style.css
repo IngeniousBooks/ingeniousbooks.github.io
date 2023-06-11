@@ -1,3 +1,15 @@
+:root {
+  --logo-font: bigmoore, serif;
+  --body-text: "Bebas Neue", sans-serif;
+
+  /* Colour Palette */
+  --bold: #ff6633;
+  --light: #ffffee;
+  --highlight: #face3c;
+  --dark: #313030;
+  --lowlight: #545558;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -5,18 +17,22 @@ body {
 }
 
 .hero {
-  background-color: #f15b5d;
-  color: #ffffff;
+  background-color: var(--light);
+  color: var(--bold);
   text-align: center;
   padding: 100px 0;
 }
 
 .hero h1 {
+  font-family: var(--logo-font);
+  font-style: normal;
+  font-weight: 400;
   font-size: 48px;
   margin-bottom: 20px;
 }
 
 .hero p {
+  font-family: var(--body-text);
   font-size: 24px;
   margin-bottom: 40px;
 }
