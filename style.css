@@ -1,10 +1,10 @@
 :root {
   --logo-font: bigmoore, serif;
-  --body-text: "Bebas Neue", sans-serif;
+  --body-text: "Mulish", sans-serif;
 
   /* Colour Palette */
   --bold: #ff6633;
-  --light: #ffffee;
+  --light: #effffe;
   --highlight: #face3c;
   --dark: #313030;
   --lowlight: #545558;
@@ -13,7 +13,23 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: var(--body-text);
+  font-style: normal;
+  text-transform: none;
+  color: var(--dark);
+  background-color: var(--light);
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
 }
 
 .hero {
@@ -21,26 +37,45 @@ body {
   color: var(--bold);
   text-align: center;
   padding: 100px 0;
+  position: relative;
 }
 
-.hero h1 {
-  font-family: var(--logo-font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 48px;
-  margin-bottom: 20px;
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
-.hero p {
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  background: none;
+}
+.hero-content h1 {
+  color: var(--bold);
   font-family: var(--body-text);
-  font-size: 24px;
+  font-size: 3rem;
   margin-bottom: 40px;
+  font-weight:bold;
 }
 
-.hero a {
-  display: inline-block;
-  background-color: #ffffff;
-  color: #f15b5d;
+.hero-content a {
+  color: var(--bold);
+  background-color: var(--light);
   padding: 15px 30px;
   font-size: 18px;
   text-decoration: none;
