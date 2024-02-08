@@ -26,40 +26,50 @@
 
 .carousel-container {
   display: flex;
-}
-
-.direction-container-left {
+  overflow: auto;
   position: relative;
-  height: 100%;
-  height: auto;
 }
 
 .carousel-left-button {
+  all: unset;
   position: absolute;
   top: 50%;
   left: 1rem;
   transform: translateY(-50%);
-}
-
-.direction-container-right {
-  position: relative;
-  height: 100%;
-  height: auto;
+  z-index: 1;
 }
 
 .carousel-right-button {
+  all: unset;
   position: absolute;
   top: 50%;
   right: 1rem;
   transform: translateY(-50%) rotateY(180deg);
+  z-index: 1;
+  user-select: none;
 }
 
 .carousel-image {
   width: 100%;
   height: auto;
+  transition: transform 1s ease-in-out;
 }
 
-h1 {
-  font-size: 3rem;
-  font-weight: 700;
+.indicator-panel {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+  background-color: var(--white);
+  opacity: 0.5;
+  padding: 1rem 0.2rem;
+  border-radius: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-width: 20%;
+}
+
+.selector {
+  height: 20px;
+  width: 20px;
 }
