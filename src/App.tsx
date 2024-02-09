@@ -5,6 +5,7 @@ import TestimonialsCarousel from "./components/testimonials-section/testimonials
 import PartnersSection from "./components/partners-section/partners-section";
 import BenefitsSection from "./components/benefits-section/benefits-section";
 import ContactSection from "./components/contact-section/contact-section";
+import Footer from "./components/footer-section/footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <PartnersSection />
       <BenefitsSection />
       <ContactSection />
+      <Footer />
     </>
   );
 }
