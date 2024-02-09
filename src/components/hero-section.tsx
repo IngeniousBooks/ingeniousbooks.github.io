@@ -1,9 +1,9 @@
-import Carousel from "./carousel";
+import HeroCarousel from "./hero-carousel";
 
 export default function HeroSection() {
   return (
     <section className="hero-section">
-      <Carousel />
+      <HeroCarousel />
       <h1>Book publishing services</h1>
       <button>Contact us</button>
     </section>
