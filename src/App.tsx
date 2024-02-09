@@ -3,6 +3,7 @@ import HeroSection from "./components/hero-section/hero-section";
 import Header from "./components/header-section/header";
 import TestimonialsCarousel from "./components/testimonials-section/testimonials-carousel";
 import PartnersSection from "./components/partners-section/partners-section";
+import BenefitsSection from "./components/benefits-section/benefits-section";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <HeroSection />
       <TestimonialsCarousel />
       <PartnersSection />
+      <BenefitsSection />
     </>
   );
 }

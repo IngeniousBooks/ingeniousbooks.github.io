@@ -4,6 +4,10 @@
   padding: 2rem;
   justify-content: center;
   align-items: center;
+  li {
+    list-style: none;
+    cursor: pointer;
+  }
 }
 
 .header {
@@ -12,6 +16,20 @@
   padding: 4rem;
   justify-content: space-between;
   align-items: center;
+
+  li {
+    list-style-type: none;
+    font-family: "sofia-pro", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  li:hover {
+    cursor: pointer;
+    font-weight: 700;
+  }
 }
 
 .nav-list {
@@ -38,6 +56,7 @@
   transform: translateY(-50%);
   z-index: 1;
   user-select: none;
+  cursor: pointer;
 }
 
 .carousel-right-button {
@@ -48,6 +67,7 @@
   transform: translateY(-50%) rotateY(180deg);
   z-index: 1;
   user-select: none;
+  cursor: pointer;
 }
 
 .carousel-image {
@@ -130,5 +150,104 @@
 
 .partners-logos-img {
   max-width: 100%;
-  padding: 4rem;
+  padding: 4rem 2rem;
+}
+
+.benefits-section {
+  display: flex;
+  padding-bottom: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: -1;
+
+  h2 {
+    text-align: center;
+    margin-top: 0;
+    width: 100%;
+    background-color: var(--d-grey);
+    color: var(--l-grey);
+    padding: 3rem;
+    margin-bottom: 0;
+  }
+}
+
+.benefit-panel {
+  background: url("/src/assets/benefits-pattern.svg") center center repeat-x;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding: 3rem;
+}
+
+.benefit-panel:nth-child(odd) {
+  flex-direction: row-reverse;
+  background: none;
+}
+
+.benefit-panel:nth-child(odd) {
+  position: relative;
+}
+
+.benefit-panel:nth-child(odd)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/src/assets/benefits-pattern.svg") center center repeat-x;
+  background-size: cover;
+  transform: scaleY(-1);
+  z-index: -1;
+}
+
+.benefit-panel-icon-odd {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -43%);
+}
+.benefit-panel-icon-even {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, 43%);
+}
+
+.benefit-panel-text-content {
+  width: 40%;
+  h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  p {
+    font-size: 1.3rem;
+    font-weight: 100;
+    margin-top: 1rem;
+  }
+  ul {
+    margin: 0;
+    padding: 2rem;
+  }
+  li {
+    color: var(--brand-orange);
+    font-size: 1.2rem;
+    padding-top: 0.2rem;
+  }
+  span {
+    color: var(--d-grey);
+    font-weight: 200;
+  }
+}
+
+.benefit-panel-img {
+  width: 40%;
+  max-height: 50%;
 }
