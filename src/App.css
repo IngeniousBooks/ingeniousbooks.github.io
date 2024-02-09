@@ -114,3 +114,21 @@
 .testimonial-button {
   padding: 2rem;
 }
+
+.partners-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 4rem 1rem;
+}
+
+.partners-logos {
+  min-width: 90%;
+  padding: 2rem;
+}
+
+.partners-logos-img {
+  max-width: 100%;
+  padding: 4rem;
+}
