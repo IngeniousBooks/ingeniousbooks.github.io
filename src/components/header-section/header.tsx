@@ -1,5 +1,5 @@
-import IngeniousIcon from "./icon";
-import Logo from "./logo";
+import IngeniousIcon from "../ui/icon";
+import Logo from "../ui/logo";
 import NavLinks from "./nav-links";
 import VerticalLine from "./vertical-line";
 

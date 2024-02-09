@@ -1,7 +1,7 @@
 import { useState } from "react";
-import LeftDirection from "./left-button";
-import RightDirection from "./right-button";
-import carouselImages from "../data/carousel-images";
+import LeftDirection from "../ui/left-button";
+import RightDirection from "../ui/right-button";
+import carouselImages from "../../data/carousel-images";
 
 export default function HeroCarousel() {
   const [imageIndex, setImageIndex] = useState(0);
