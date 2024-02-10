@@ -6,7 +6,6 @@ import PauseIcon from "../ui/pause-button";
 
 export default function HeroCarousel() {
   const [imageIndex, setImageIndex] = useState(0);
-  const [intervalId, setIntervalId] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
 
   const nextImage = () => {
@@ -16,19 +15,19 @@ export default function HeroCarousel() {
   };
 
   useEffect(() => {
-    if (!isPaused) {
-      let intervalId: number | null = null;
+    let intervalId: number | null = null;
 
-      const handleAutoplay = () => {
+    const handleAutoplay = () => {
+      if (!isPaused) {
         nextImage();
-      };
+      }
+    };
 
-      intervalId = setInterval(handleAutoplay, 4000);
+    intervalId = setInterval(handleAutoplay, 5000);
 
-      return () => {
-        if (intervalId) clearInterval(intervalId);
-      };
-    }
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
   }, [isPaused]);
 
   return (
@@ -39,11 +38,6 @@ export default function HeroCarousel() {
           setImageIndex((prevIndex) =>
             prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
           );
-          if (!isPaused) {
-            if (intervalId) clearInterval(intervalId);
-            const newIntervalId = setInterval(nextImage, 4000);
-            setIntervalId(newIntervalId);
-          }
         }}
       >
         <LeftDirection />
@@ -75,11 +69,6 @@ export default function HeroCarousel() {
           setImageIndex((prevIndex) =>
             prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
           );
-          if (!isPaused) {
-            if (intervalId) clearInterval(intervalId);
-            const newIntervalId = setInterval(nextImage, 4000);
-            setIntervalId(newIntervalId);
-          }
         }}
       >
         <RightDirection />
@@ -91,9 +80,6 @@ export default function HeroCarousel() {
             className={`selector ${index === imageIndex ? "active" : ""}`}
             onClick={() => {
               setImageIndex(index);
-              if (intervalId) clearInterval(intervalId);
-              const newIntervalId = setInterval(nextImage, 4000);
-              setIntervalId(newIntervalId);
             }}
           >
             <svg

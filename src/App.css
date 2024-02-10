@@ -16,6 +16,10 @@
   padding: 2rem 4rem;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: var(--white);
 
   li {
     list-style-type: none;
@@ -73,7 +77,7 @@
 .carousel-image {
   width: 100%;
   height: auto;
-  transition: translate 300ms ease-in-out;
+  transition: translate 700ms ease-in-out;
 }
 
 .indicator-panel {
