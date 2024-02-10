@@ -1,10 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LeftDirection from "../ui/left-button";
 import RightDirection from "../ui/right-button";
 import carouselImages from "../../data/carousel-images";
+import PauseIcon from "../ui/pause-button";
 
 export default function HeroCarousel() {
   const [imageIndex, setImageIndex] = useState(0);
+  const [intervalId, setIntervalId] = useState<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const nextImage = () => {
+    setImageIndex((prevIndex) =>
+      prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  useEffect(() => {
+    if (!isPaused) {
+      let intervalId: number | null = null;
+
+      const handleAutoplay = () => {
+        nextImage();
+      };
+
+      intervalId = setInterval(handleAutoplay, 4000);
+
+      return () => {
+        if (intervalId) clearInterval(intervalId);
+      };
+    }
+  }, [isPaused]);
 
   return (
     <section className="carousel-container">
@@ -14,21 +39,47 @@ export default function HeroCarousel() {
           setImageIndex((prevIndex) =>
             prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
           );
+          if (!isPaused) {
+            if (intervalId) clearInterval(intervalId);
+            const newIntervalId = setInterval(nextImage, 4000);
+            setIntervalId(newIntervalId);
+          }
         }}
       >
         <LeftDirection />
       </button>
-      <img
-        className="carousel-image"
-        src={carouselImages[imageIndex].src}
-        alt={carouselImages[imageIndex].alt}
-      />
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          overflow: "hidden",
+        }}
+      >
+        {carouselImages.map(({ src, alt }) => {
+          return (
+            <img
+              key={src}
+              className="carousel-image"
+              style={{ translate: `${-100 * imageIndex}%` }}
+              src={src}
+              alt={alt}
+            />
+          );
+        })}
+      </div>
+
       <button
         className="carousel-right-button"
         onClick={() => {
           setImageIndex((prevIndex) =>
             prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
           );
+          if (!isPaused) {
+            if (intervalId) clearInterval(intervalId);
+            const newIntervalId = setInterval(nextImage, 4000);
+            setIntervalId(newIntervalId);
+          }
         }}
       >
         <RightDirection />
@@ -38,7 +89,12 @@ export default function HeroCarousel() {
           <li
             key={image.src}
             className={`selector ${index === imageIndex ? "active" : ""}`}
-            onClick={() => setImageIndex(index)}
+            onClick={() => {
+              setImageIndex(index);
+              if (intervalId) clearInterval(intervalId);
+              const newIntervalId = setInterval(nextImage, 4000);
+              setIntervalId(newIntervalId);
+            }}
           >
             <svg
               id="a"
@@ -58,6 +114,12 @@ export default function HeroCarousel() {
             </svg>
           </li>
         ))}
+        <li
+          className="pause-icon"
+          onClick={() => setIsPaused((currentStatus) => !currentStatus)}
+        >
+          <PauseIcon isActive={isPaused} />
+        </li>
       </ul>
     </section>
   );

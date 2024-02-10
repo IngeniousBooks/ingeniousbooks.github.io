@@ -73,7 +73,7 @@
 .carousel-image {
   width: 100%;
   height: auto;
-  transition: transform 1s ease-in-out;
+  transition: translate 300ms ease-in-out;
 }
 
 .indicator-panel {
