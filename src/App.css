@@ -13,7 +13,7 @@
 .header {
   display: flex;
   flex-direction: row;
-  padding: 4rem;
+  padding: 2rem 4rem;
   justify-content: space-between;
   align-items: center;
 
@@ -272,33 +272,40 @@ form {
   justify-content: center;
   align-items: center;
   min-width: 45%;
-  padding: 2rem;
+  padding: 1rem 2rem;
   background-color: var(--l-cream);
   border-radius: 0.5rem;
   button {
-    margin: 2rem;
+    margin: 1rem;
     text-transform: uppercase;
     padding: 0.8rem 2rem;
     font-size: 1rem;
     border-radius: 0.8rem;
+  }
+  button:hover {
+    box-sizing: border-box;
+    background-color: var(--l-cream);
+    color: var(--brand-orange);
+    box-shadow: 0 0 0 5px var(--brand-orange), inset 0 0 0 1px #fff;
   }
 }
 
 label,
 input,
 textarea {
+  padding-left: 5px;
   min-width: 100%;
   display: block;
   align-items: center;
   font-weight: 400;
   border: none;
-  padding: 1rem;
 }
 
 label {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
   font-size: 1.2rem;
+  font-weight: 600;
 }
 
 input {
@@ -315,10 +322,28 @@ textarea {
 
 footer {
   background-color: var(--d-grey);
+  width: 100%;
   text-transform: uppercase;
   color: var(--white);
   text-align: center;
   font-weight: 200;
   padding: 5rem;
   font-size: 1.5rem;
+  margin-top: auto;
+  position: relative;
+  bottom: 0;
+}
+
+.error-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25vh;
+  p {
+    font-size: 2rem;
+  }
+}
+.error-message {
+  color: var(--brand-orange);
+  font-style: italic;
 }

@@ -4,7 +4,7 @@ import IngeniousIcon from "../ui/icon";
 
 export default function TestimonialsCarousel() {
   return (
-    <section className="testimonials-carousel-section">
+    <section id="testimonials" className="testimonials-carousel-section">
       <h2>Hear from our publishing partners</h2>
       <button className="carousel-left-button testimonial-button">
         <DarkLeftButton />

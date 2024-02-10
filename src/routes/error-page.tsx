@@ -1,0 +1,30 @@
+import { useRouteError, isRouteErrorResponse } from "react-router-dom";
+import Header from "../components/header-section/header";
+
+export default function ErrorPage() {
+  const error = useRouteError();
+  let errorMessage: string;
+
+  if (isRouteErrorResponse(error)) {
+    // error is type `ErrorResponse`
+    errorMessage = error.data.message || error.statusText;
+  } else if (error instanceof Error) {
+    errorMessage = error.message;
+  } else if (typeof error === "string") {
+    errorMessage = error;
+  } else {
+    console.error(error);
+    errorMessage = "Unknown error";
+  }
+
+  return (
+    <>
+      <Header />
+      <div className="error-section">
+        <h1>Oops!</h1>
+        <p>Sorry, an unexpected error has occurred: </p>
+        <p className="error-message">{errorMessage}</p>
+      </div>
+    </>
+  );
+}

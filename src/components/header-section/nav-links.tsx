@@ -1,10 +1,20 @@
+import { HashLink as Link } from "react-router-hash-link";
+
 export default function NavLinks() {
   return (
     <ul className="nav-list">
-      <li>about</li>
-      <li>services</li>
-      <li>testimonials</li>
-      <li>contact</li>
+      <Link to="/about">
+        <li>about</li>
+      </Link>
+      <Link smooth to="/#services">
+        <li>services</li>
+      </Link>
+      <Link smooth to="/#testimonials">
+        <li>testimonials</li>
+      </Link>
+      <Link smooth to="/#contact">
+        <li>contact</li>
+      </Link>
     </ul>
   );
 }
