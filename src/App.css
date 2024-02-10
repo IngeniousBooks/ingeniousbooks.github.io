@@ -99,6 +99,12 @@
   padding-bottom: 5rem;
 }
 
+.hero-button:hover {
+  background-color: var(--l-cream);
+  color: var(--brand-orange);
+  box-shadow: 0 0 0 5px var(--brand-orange), inset 0 0 0 1px #fff;
+}
+
 .testimonials-carousel-section {
   display: flex;
   flex-direction: column;
@@ -283,7 +289,6 @@ form {
     border-radius: 0.8rem;
   }
   button:hover {
-    box-sizing: border-box;
     background-color: var(--l-cream);
     color: var(--brand-orange);
     box-shadow: 0 0 0 5px var(--brand-orange), inset 0 0 0 1px #fff;
